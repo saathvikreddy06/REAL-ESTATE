@@ -8,7 +8,7 @@ import propertyRoutes from "./routes/propertyRoutes.js";
 
 dotenv.config();
 connectDB();
-
+const path = require("path");
 const app = express();
 
 const allowedOrigins = process.env.FRONTEND_URL
