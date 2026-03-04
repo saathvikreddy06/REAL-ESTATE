@@ -44,6 +44,9 @@ app.use("/api/properties", propertyRoutes);
 app.use(express.static(path.join(process.cwd(), "dist")));
 
 app.get("*", (req, res) => {
+  if (req.originalUrl.startsWith("/api")) {
+    return res.status(404).json({ message: "API route not found" });
+  }
   res.sendFile(path.join(process.cwd(), "dist", "index.html"));
 });
 
