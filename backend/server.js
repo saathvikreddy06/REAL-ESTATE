@@ -41,10 +41,10 @@ app.get("/api/health", (_req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/properties", propertyRoutes);
 
-app.use(express.static(path.join(process.cwd(), "backend", "dist")));
+app.use(express.static(path.join(process.cwd(), "dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(process.cwd(), "backend", "dist", "index.html"));
+  res.sendFile(path.join(process.cwd(), "dist", "index.html"));
 });
 
 app.use(notFound);
